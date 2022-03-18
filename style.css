@@ -1,0 +1,262 @@
+/*font-size
+0.64rem/10.24px   0.8rem/12.80px    1rem/16.00px    1.25rem/20.00px
+1.563rem/25.00px  1.953rem/31.25px  2.441rem/39.06px  3.052rem/48.83px
+3.815rem/61.04px
+
+/*
+  main blue: #3897e9;
+  tint 1: #91c5f3;
+  tint 2: #d3e8fa;
+  shade 1: #1f7dcf;
+  grey: #2b0e03;
+  color: #ffff;
+*/
+
+* {
+  font-family: sans-serif;
+  font-size: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  color: #411604;
+  font-size: 65px;
+  font-style: italic;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+h2 {
+  font-size: 55px;
+  font-style: italic;
+  margin-bottom: 50px;
+  color: #c1c8e4;
+}
+
+#self-img {
+  margin-bottom: 50px;
+  padding: 15px 15px;
+  background-color: rgba(238, 211, 58, 0.356);
+}
+
+p {
+  font-size: 20px;
+  line-height: 1.4;
+}
+
+h3 {
+  font-size: 28px;
+  line-height: 3.5;
+}
+
+li {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+footer p {
+  font-size: 13px;
+}
+
+body header {
+  font-size: 50px;
+  text-align: center;
+  background-color: #5680e9;
+  /* border: 2px solid black; */
+  width: 1500px;
+  /* margin: 0 0 15px 0; */
+  margin: auto;
+  padding-top: 20px;
+}
+
+/* .past-job {
+  font-size: 22px;
+  color: sandybrown;
+  line-height: 0.001;
+} */
+
+.job-li {
+  list-style: none;
+}
+
+.edu-li li {
+  font-size: 22px;
+  line-height: 1.2;
+}
+
+.fb-icon {
+  background-color: rgb(48, 109, 240);
+  padding: 5px 10px;
+}
+
+/* .edu-li li:nth-child(2) {
+  font-size: 25px;
+  list-style: none;
+  line-height: 2;
+  color: blueviolet;
+} */
+
+.listing1 li:first-child {
+  list-style: none;
+  font-style: italic;
+  font-size: 25px;
+  margin: 0 0 15px -12px;
+}
+
+.listing1 li:last-child {
+  margin: 0 0 15px 0;
+}
+
+.cv-info-block {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-self: stretch;
+  column-gap: 50px;
+  row-gap: 30px;
+}
+
+.cv-info {
+  /* background-color: #f4a460; */
+  font-size: 35px;
+  color: #ffff;
+  justify-self: start;
+}
+
+.fb-link a:link,
+a:visited {
+  font-size: 55px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.fb-link a:hover,
+a:active {
+  color: black;
+  text-decoration: underline dotted;
+  font-size: 55px;
+  display: inline-block;
+}
+
+.intro-CV {
+  padding-bottom: 30px;
+  display: inline-block;
+  width: 100%;
+}
+
+.article-container {
+  width: 1000px;
+  margin: auto;
+  background-color: #f7f7f7;
+  margin-bottom: 25px;
+}
+
+h3 {
+  color: rgb(118, 170, 51);
+
+  margin-left: 25px;
+}
+
+.text-block {
+  width: 900px;
+  margin: auto;
+}
+
+.edu-img {
+  margin-left: 150px;
+  border-style: double;
+  border-width: 15px;
+  padding: 0px 30px 0px 30px;
+  margin-left: 55px;
+}
+
+.edu-li {
+  padding-top: 30px;
+  margin-left: 30px;
+}
+
+.edu-block {
+  display: flex;
+  gap: 120px;
+  justify-content: center;
+  width: 100%;
+}
+
+.edu-li li:first-child {
+  list-style: none;
+  color: rgb(255, 0, 0);
+  font-size: 30px;
+  font-weight: bold;
+  margin-top: 30px;
+  margin-left: 30px;
+}
+
+.edu-li li {
+  margin-bottom: 15px;
+  margin-left: 85px;
+  font-size: 25px;
+  font-style: italic;
+}
+
+.job-li li:first-child {
+  color: #f4a460;
+  list-style: none;
+  margin: 0 25px 15px -45px;
+  padding-left: 35px;
+  padding-top: 15px;
+  border-top: #f4a460;
+  border-width: 3px;
+  border-style: dashed none none none;
+}
+
+.job-position li:nth-child(2) {
+  list-style: none;
+  font-size: 22px;
+  font-style: italic;
+  margin-bottom: 15px;
+}
+
+.job-li {
+  margin-left: 65px;
+}
+
+.job-li li:last-child {
+  margin-bottom: 0;
+}
+
+.bot-container {
+  display: flex;
+  width: 1000px;
+  gap: 15%;
+}
+
+.left-float-container {
+  box-sizing: border-box;
+  flex: 0 1 510px;
+}
+
+.right-float-container {
+  box-sizing: border-box;
+  flex: 0 1 480px;
+}
+
+.right-float-container h3 {
+  margin-left: -35px;
+}
+
+.hobbies-block ul li {
+  margin-bottom: 20px;
+  font-size: 25px;
+}
+
+footer {
+  margin: 0 20px 10px 20px;
+}
+
+/* FLEX BOX STYLE SHEET */
+
+.flex-box-test {
+  font-size: 100px;
+}
