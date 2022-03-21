@@ -20,8 +20,6 @@ class connDB {
     self::$instance = NULL;
   }
 
-  
-
 }
 
 ?>

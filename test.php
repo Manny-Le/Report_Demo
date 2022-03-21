@@ -12,7 +12,7 @@
 
   <?php
 
-require_once('./connectionHandler.php');
+require_once('./inputHandler.php');
 require_once('./connect.php');
 
     // $conn = mysqli_connect("localhost", "root", "root","cv_test");
