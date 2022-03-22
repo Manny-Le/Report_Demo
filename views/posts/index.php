@@ -5,6 +5,5 @@ foreach ($posts as $post) {
   <a href="index.php?controller=posts&action=showPost&id=' . $post->id . '">' . $post->title . '</a>
   </li>';
 }
-echo '</ul>';
-echo 
+echo '</ul>'; 
 ?>

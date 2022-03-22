@@ -21,7 +21,9 @@ class PostsController extends BaseController
     $post = Post::find($_GET['id']);
     $data = array('post' => $post);
     $this->render('show', $data);
-  }
+  } 
+
+
 }
 
 ?>

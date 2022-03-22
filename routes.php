@@ -1,7 +1,8 @@
 <?php
 $controllers = array(
-  'pages' => ['home', 'error'],
+  'pages' => ['home', 'error', ],
   'posts' => ['index', 'showPost'],
+  'persons' => ['index', 'showPerson', 'formView', 'insert', 'errorPerson', 'editPerson'],
 );
 
 
@@ -17,5 +18,7 @@ include_once('controllers/' . $controller . '_controller.php');
 $klass = str_replace('_', '', ucwords($controller, '_')) . 'Controller';
 $controller = new $klass;
 $controller->$action();
+
+
 
 ?>
