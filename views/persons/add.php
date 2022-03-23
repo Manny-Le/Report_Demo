@@ -1,9 +1,10 @@
 <html>
+  <h1>ADD NEW PERSON PAGE</h1>
   <table>
     <form 
     name="addEmployee" 
     method="post" 
-    action="index.php?controller=persons&action=formView">
+    action="index.php?controller=persons&action=addPerson">
         <tr>
           <td>
             <label class="fill-in">Full Name: </label>
@@ -15,7 +16,7 @@
             value="<?= isset($data['FullName']) ? $data['FullName'] : ''; ?>"/>
           </td>
           <td>
-            <?= $data['name_err']; ?>
+            <?= $error['name_err']; ?>
           </td>
         </tr> 
         <tr>
@@ -29,9 +30,9 @@
             value="<?= isset($data['JobApply']) ? $data['JobApply'] : ''; ?>">
           </td>
           <td>
-            <?= isset($data['job_err']) ? $data['job_err'] : ''; ?>
+            <?= isset($error['job_err']) ? $error['job_err'] : ''; ?>
           </td>
-        </tr>        
+        </tr>
         <tr>
           <td>
             <label class="fill-in">Phone: </label>
@@ -43,7 +44,7 @@
             value="<?= isset($data['Phone']) ? $data['Phone'] : ''; ?>">
           </td>
           <td>
-            <?= isset($data['phone_err']) ? $data['phone_err'] : ''; ?>
+            <?= isset($error['phone_err']) ? $error['phone_err'] : ''; ?>
           </td>
         </tr>
         <tr>
@@ -58,7 +59,7 @@
             value="<?= isset($data['Mail']) ? $data['Mail'] : ''; ?>">
           </td>
           <td>
-            <?= isset($data['mail_err']) ? $data['mail_err'] : ''; ?>
+            <?= isset($error['mail_err']) ? $error['mail_err'] : ''; ?>
           </td>
         </tr>
         <tr>
@@ -72,7 +73,7 @@
             value="<?= isset($data['DOB']) ? $data['DOB'] : ''; ?>">
           </td>
           <td>
-            <?= isset($data['DOB_err']) ? $data['DOB_err'] : ''; ?>
+            <?= isset($error['DOB_err']) ? $error['DOB_err'] : ''; ?>
           </td>
         </tr>
         <tr>
@@ -122,15 +123,17 @@
             </table>
           </td>
           <td>
-            <?= isset($data['gender_err']) ? $data['gender_err'] : ''; ?>
+            <?= isset($error['gender_err']) ? $error['gender_err'] : ''; ?>
           </td>
         </tr>
         <tr>
           <td>
             <input type="submit" name="submit_action" value="Submit">
-</td>
+          </td>
         </tr>
       </form>
   </table>
-
+  <a href="index.php?controller=persons&action=index">INDEX PAGE</a>
+ 
+ </html>
 </html>

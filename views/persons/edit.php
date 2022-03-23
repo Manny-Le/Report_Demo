@@ -1,15 +1,16 @@
 <html>
+  <h2>EDIT</h2>
   <table>
     <form 
-    name="addEmployee" 
+    name="editEmployee" 
     method="post" 
-    action="index.php?controller=persons&action=editPerson">
+    action="index.php?controller=persons&action=editPerson&id=<?=$data['ID']?>">
         <tr>
           <td>
             <label class="fill-in">Full Name: </label>
           </td>
           <td>
-            <?= $data->FullName?>
+            <?= $data['FullName'];?>
           </td>
           <td>
             <input 
@@ -24,7 +25,7 @@
             <label class="fill-in">Job: </label>
           </td>
           <td>
-            <?= $data->JobApply?>
+            <?= $data['JobApply']?>
           </td>
           <td>
             <input 
@@ -33,13 +34,13 @@
           </td>
           <td>
           </td>
-        </tr>        
+        </tr>     
         <tr>
           <td>
             <label class="fill-in">Phone: </label>
           </td>
           <td>
-            <?= $data->Phone?>
+            <?= $data['Phone']?>
           </td>
           <td>
             <input
@@ -55,7 +56,7 @@
             class="fill-in">Mail: </label>        
           </td>
           <td>
-            <?= $data->Mail?>
+            <?= $data['Mail']?>
           </td>
           <td>
             <input
@@ -68,7 +69,7 @@
             <label class="fill-in">Date of birth: </label>
           </td>
           <td>
-            <?= $data->DOB?>
+            <?= $data['DOB']?>
           </td>
           <td>
             <input
@@ -88,12 +89,12 @@
                 <td>
                   <label for="male"> Male</label>
                 </td>
-                <td>             
-                  <input 
+                <td>
+                  <input
                   type="radio" 
                   class="fill-in"
                   name="Gender" value="male"
-                  <?= (isset($data->Gender)&&($data->Gender=="male")) ? 'checked' : ""?>>
+                  <?= (isset($data['Gender'])&&($data['Gender']=="male")) ? 'checked' : ""?>>
                 </td>
               </tr>
               <tr>
@@ -106,7 +107,7 @@
                   class="fill-in"
                   name="Gender"
                   value="female"
-                  <?= (isset($data->Gender)&&($data->Gender=="female")) ? 'checked' : ""?>>
+                  <?= (isset($data['Gender'])&&($data['Gender']=="female")) ? 'checked' : ""?>>
                 </td>
               </tr>
               <tr>
@@ -119,7 +120,7 @@
                   class="fill-in"
                   name="Gender"
                   value="helicopter"
-                  <?= (isset($data->Gender)&&($data->Gender=="helicopter")) ? 'checked' : ""?>>
+                  <?= (isset($data['Gender'])&&($data['Gender']=="helicopter")) ? 'checked' : ""?>>
                 </td>
               </tr>
             </table>
@@ -128,8 +129,12 @@
             <input type="submit" name="submit_action" value="EDIT">
           </td>
         </tr>
+      </form>   
+      <tr>
           
-      </form>
+        </tr>
   </table>
+  <p><?= $error['empty_err']; ?></p>
 
+  <a href="index.php?controller=persons&action=index">INDEX</a>
 </html>

@@ -5,6 +5,10 @@ if (isset($_GET['controller'])) {
   $controller = $_GET['controller'];
   if (isset($_GET['action'])) {
     $action = $_GET['action'];
+    if (isset($_GET['id'])) {
+      $param = $_GET['id'];
+    }
+    
   } else {
     $action = 'index';
   }

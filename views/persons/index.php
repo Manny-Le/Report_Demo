@@ -13,9 +13,16 @@
         href="index.php?controller=persons&action=editPerson&id=<?=$person->ID?>"> EDIT 
         </a>
       </td>
+
+      <td>
+        <a 
+        href="index.php?controller=persons&action=confirmDelete&id=<?=$person->ID?>"> DELETE
+        </a>
+      </td>
   </tr>
  <?php } ?>
 
   </table>
-
-  <?= '</table> <hr /> <input type="submit" name="submit_action" value="Add new">'; ?>
+<a href="index.php?controller=persons&action=addPerson">ADD NEW</a>
+ 
+  </html>

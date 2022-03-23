@@ -9,7 +9,7 @@ class Person {
   public $Mail;
   public $DOB;
 
-  function __construct($id, $fullName, $jobApply, $gender, $phone, $email, $dob) {
+  public function __construct($id, $fullName, $jobApply, $gender, $phone, $email, $dob) {
     $this->ID = $id;
     $this->FullName = $fullName;
     $this->JobApply = $jobApply;
@@ -19,10 +19,11 @@ class Person {
     $this->DOB = $dob;
   }
 
-  function getAllPerson() {
+  public function getAllPerson() {
       $list = [];
       $db = connDB::getInstance();
       $req = $db->query('SELECT * FROM persons');
+
 
       foreach ($req->fetchAll() as $item) {
         $list[] = new Person($item['ID'], $item['FullName'], $item['JobApply'], $item['Gender'], $item['Phone'], $item['Mail'], $item['DOB']);
@@ -30,7 +31,7 @@ class Person {
       return $list;
   }
 
-  function findByID($ID)
+  public function findPerByID($ID)
   {
 
     $db = connDB::getInstance();
@@ -75,12 +76,30 @@ class Person {
     $stmt->bindParam(':phone', $data['Phone']);
     $stmt->bindParam(':dob', $data['DOB']);
 
+    $stmt->bindParam(':id', $data['ID']);
+
     if($stmt->execute()){
       return true;
   } else {
       return false;
   }
 }
+
+  public function delPerson($id) {
+
+    $db = connDB::getInstance();
+    
+    $stmt= $db->prepare('DELETE FROM persons 
+                          WHERE ID = :id');
+
+    $stmt->bindParam(':id', $id);
+    
+    return ($stmt->execute()) ? true:false;
+  }
+
+
+
+
 
 }
 
