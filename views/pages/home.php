@@ -7,9 +7,37 @@
     <title>HMTL CV DEMO</title>
     <link href="assets/style.css" rel="stylesheet"/>
     <link href="queries.css" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
   </head>
   <body>
+    <div class="centering">
     <header>
+
+    <div class="nav-box">
+
+      <h3>PERSONAL PROJECT</h3>
+
+      <ul class="nav-list">
+      <li><a 
+      class="nav-link"
+      href="index.php?controller=pages&action=home">HOME</a></li>
+
+      <li><a
+      class="nav-link"
+      href="index.php?controller=persons&action=index">PERSONEL</a></li>
+
+      <li><a
+      class="nav-link"
+      href="index.php?controller=projects&action=index">PROJECT</a></li>
+
+    </ul>
+
+    </div>
+    
+
+
       <h1>LE MINH MAN CV</h1>
 
       <h2>FRONTEND DEVELOPER INTERN</h2>
@@ -94,36 +122,44 @@
 
     <div class="article-container">
     <article>
-      <div class="intro-CV">
-      <h3>INTRODUCTION</h3>
-      <p class="text-block">
-        I am a hard worker with basic programming knowledge. I am capable of
-        self-learning, highly self-awareness and serious commitments for my
-        goal. I could handle work in high pressure situation.
-      </p>
 
-      <h3>CAREER GOAL</h3>
-      <p class="text-block">
-        For starting, first goal is becoming a professional front-end developer.
-        Then, a full-stack developer in the future.
-      </p>
 
-      <h3>EDUCATION</h3>
-      <div class="edu-block">
-      <img
-          class="edu-assets"
-          src="assets/rmit-university-logo.png"
-          alt="rmit logo transparent"
-          height="250"
-        />
+      <div class="intro-CV-block">
+        <div class="intro-CV-el intro-1">
+          <h3>INTRODUCTION</h3>
+          <p class="text-block">
+            I am a hard worker with basic programming knowledge. I am capable of
+            self-learning, highly self-awareness and serious commitments for my
+            goal. I could handle work in high pressure situation.
+          </p>
+        </div>
+
+        <div class="intro-CV-el intro-2">
+          <h3>CAREER GOAL</h3>
+          <p class="text-block ">
+            For starting, first goal is becoming a professional front-end developer.
+            Then, a full-stack developer in the future.
+          </p>
+        </div>
+        <div class="intro-CV-el intro-3">
+            <div class="edu-block">
+              
+            <h3>EDUCATION</h3>
+            <img
+              class="edu-assets"
+              src="assets/rmit-university-logo.png"
+              alt="rmit logo transparent"
+              height="250"
+            />
+            <ul class="edu-li">
+          
+              <li>Information Technology Major</li>
+              <li>Unfinished IT degree.</li>
+              <li>Completed basic Java, C, C++ courses.</li>
+            </ul>
+          </div>
         
-        <ul class="edu-li">
-        
-          <li>Information Technology Major</li>
-          <li>Unfinished IT degree.</li>
-          <li>Completed basic Java, C, C++ courses.</li>
-        </ul>
-      </div>
+        </div>
       </div>
       <div class="bot-container">
       <div class="left-float-container">
@@ -193,27 +229,27 @@
           </ul>
         </div>
 
-      <div class="hobbies-block">
-        <h3>HOBBIES & INTERETESTS</h3>
-        <ul>
-          <li>Camping and backpacking</li>
-          <li>Playing video games</li>
-          <li>Reading comic books</li>
-        </ul>
-      </div>
+        <div class="hobbies-block">
+          <h3>HOBBIES & INTERETESTS</h3>
+          <ul>
+            <li>Camping and backpacking</li>
+            <li>Playing video games</li>
+            <li>Reading comic books</li>
+          </ul>
+        </div>
 
-      <div class="achievment">
-        <h3>PERSONAL ACHIEVMENT</h3>
-        <ul class="listing1">
-          <li>Travelling & Backpacking</li>
-          <li>Camping alone in the woods for 1 month.</li>
-          <li>Travelling through Vietnam, Laos and Cambodia on motobike.</li>
-        </ul>
+        <div class="achievment">
+          <h3>PERSONAL ACHIEVMENT</h3>
+          <ul class="listing1">
+            <li>Travelling & Backpacking</li>
+            <li>Camping alone in the woods for 1 month.</li>
+            <li>Travelling through Vietnam, Laos and Cambodia on motobike.</li>
+          </ul>
+        </div>
+        </div>
       </div>
-      </div>
-    </div>
-    
     </article>
+  </div>
   </div>
   </body>
   <footer>

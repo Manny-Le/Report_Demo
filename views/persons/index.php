@@ -1,4 +1,6 @@
 <html>
+
+  <h2>PEOPLE LISTING</h2>
   <table>
   <?php foreach ($persons as $person) { ?>
     <tr>
@@ -24,5 +26,6 @@
 
   </table>
 <a href="index.php?controller=persons&action=addPerson">ADD NEW</a>
+<a href="index.php?controller=pages&action=home">HOME</a>
  
   </html>

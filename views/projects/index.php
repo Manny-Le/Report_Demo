@@ -18,12 +18,13 @@
       </td>
 
       <td>
-        <a 
-        href="index.php?controller=persons&action=confirmDelete&id=<?=$project->ID?>"> DELETE
+        <a
+        href="index.php?controller=projects&action=confirmDelete&id=<?=$project->proID?>"> DELETE
         </a>
       </td>
   </tr>
  <?php } ?>
   </table>
-
+  <a href="index.php?controller=projects&action=addProject">ADD NEW</a>
+  <a href="index.php?controller=pages&action=home">HOME</a>
 </html>

@@ -51,33 +51,32 @@ class Project {
     $req->execute(array('ID'=> $ID));
     $item = $req->fetch();
     if (isset($item['ID'])) {
-      $list =  new Project($item['proID'], $item['proName'], $item['proStart'], $item['proEnd'], $item['perID']);
+      $list =  new Project($item['proID'], $item['proName'], $item['proStart'], $item['proEnd'], $item['ID']);
     }
     
     return $list;
   }
 
-  public function insertProByID($data){
+  // public function insertProByID($data){
 
-    $db = connDB::getInstance();
-    $stmt = $db->prepare('INSERT INTO project (proName, proStart, proEnd, perID) VALUES (:name, :start, :end, :perID)');
+  //   $db = connDB::getInstance();
+  //   $stmt = $db->prepare('INSERT INTO project (proName, proStart, proEnd, perID) VALUES (:name, :start, :end, :perID)');
     
-    $stmt->bindParam(':name', $data['proName']);
-    $stmt->bindParam(':job', $data['proStart']);
-    $stmt->bindParam(':gender', $data['proEnd']);
-    $stmt->bindParam(':phone', $data['perID']);
+  //   $stmt->bindParam(':name', $data['proName']);
+  //   $stmt->bindParam(':job', $data['proStart']);
+  //   $stmt->bindParam(':gender', $data['proEnd']);
+  //   $stmt->bindParam(':phone', $data['perID']);
 
-    if($stmt->execute()){
-        return true;
-    } else {
-        return false;
-    }
-  }
+  //   if($stmt->execute()){
+  //       return true;
+  //   } else {
+  //       return false;
+  //   }
+  // }
 
   public function insertPro($data){
-
     $db = connDB::getInstance();
-    $stmt = $db->prepare('INSERT INTO project (proName, proStart, proEnd, perID) VALUES (:name, :start, :end, :perID)');
+    $stmt = $db->prepare('INSERT INTO project (proName, proStart, proEnd, ID) VALUES (:name, :start, :end, :perID)');
     
     $stmt->bindParam(':name', $data['proName']);
     $stmt->bindParam(':start', $data['proStart']);
@@ -110,7 +109,7 @@ class Project {
     }
   }
 
-  public function delProject($personID) {
+  public function delProjectByPerID($personID) {
 
     $db = connDB::getInstance();
     
@@ -118,6 +117,18 @@ class Project {
                           WHERE ID = :id');
 
     $stmt->bindParam(':id', $personID);
+    
+    return ($stmt->execute()) ? true:false;
+  }
+
+  public function delProjectByProID($id) {
+
+    $db = connDB::getInstance();
+    
+    $stmt= $db->prepare('DELETE FROM project 
+                          WHERE proID = :id');
+
+    $stmt->bindParam(':id', $id);
     
     return ($stmt->execute()) ? true:false;
   }

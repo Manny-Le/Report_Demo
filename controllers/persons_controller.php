@@ -83,8 +83,6 @@ class PersonsController extends BaseController
       }
     } else
     {
-      
-
       foreach ($person as  $key=>$value) {
         $data[$key] = $person->$key;
     }
@@ -187,7 +185,7 @@ class PersonsController extends BaseController
 
   public function confirmDelete() {
     $person = Person::findPerByID($_GET['id']);
-    Project::delProject($_GET['id']);
+    Project::delProjectByPerID($_GET['id']);
     foreach ($person as $key=>$value) {
       $data[$key] = $person->$key;
     }
