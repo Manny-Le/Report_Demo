@@ -6,11 +6,11 @@ if (isset($_GET['controller'])) {
   if (isset($_GET['action'])) {
     $action = $_GET['action'];
     if (isset($_GET['id'])) {
+      $_GET['id'] = 1;
     }
     
   } else {
     $action = 'index';
-    
   $_GET['id'] = 1;
   }
 } else {

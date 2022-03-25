@@ -26,6 +26,6 @@
 
   </table>
 <a href="index.php?controller=persons&action=addPerson">ADD NEW</a>
-<a href="index.php?controller=pages&action=home">HOME</a>
+<a href="index.php?controller=pages&action=home&id=1">HOME</a>
  
   </html>
