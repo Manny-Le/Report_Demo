@@ -35,6 +35,20 @@
         </tr>
         <tr>
           <td>
+            <label class="fill-in">Address: </label>
+          </td>
+          <td>
+            <input 
+            type="text"
+            name="Addre"
+            value="<?= isset($data['Addre']) ? $data['Addre'] : ''; ?>">
+          </td>
+          <td>
+            <?= isset($error['add_err']) ? $error['add_err'] : ''; ?>
+          </td>
+        </tr>
+        <tr>
+          <td>
             <label class="fill-in">Phone: </label>
           </td>
           <td>

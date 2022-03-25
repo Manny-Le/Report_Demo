@@ -34,7 +34,22 @@
           </td>
           <td>
           </td>
-        </tr>     
+        </tr>
+        <tr>
+          <td>
+            <label class="fill-in">Address: </label>
+          </td>
+          <td>
+            <?= $data['Addre']?>
+          </td>
+          <td>
+            <input 
+            type="text"
+            name="Addre">
+          </td>
+          <td>
+          </td>
+        </tr>       
         <tr>
           <td>
             <label class="fill-in">Phone: </label>

@@ -30,7 +30,7 @@ class ProjectsController extends BaseController
         'proName' =>  trim($_POST['proName']),
         'proStart' => trim($_POST['proStart']),
         'proEnd' => trim($_POST['proEnd']),
-        'ID' => trim($_POST['ID']),
+        'ID' => trim($_GET['id']),
       ];
       $error = [
         'proName_err' => '',
@@ -39,37 +39,32 @@ class ProjectsController extends BaseController
         'perID_err' => '',
       ];
 
-      //Check input empty & send message back to form
+      //Check input empty, valid & send message back to form
       $error['proName_err'] = (empty($data['proName'])) ? 'Please enter project
       s name.' : '';
       $error['start_err'] = (empty($data['proStart'])) ? 'Please enter project start time.' : '';
       $error['end_err'] = (empty($data['proEnd'])) ? 'Please enter project end time.' : '';
-      // $error['perID_err'] = (null!==(Person::findPerByID($data['ID']))) ? 'Person ID does not exist.' : '';
-      // $error['perID_err'] = (empty($data['ID'])) ? 'Please enter person ID.' : '';
       if (empty($data['ID'])) {
         $error['perID_err'] = 'Please enter person ID.';
-      } else if (null==(Person::findPerByID($data['ID']))) {
+      // } else if (null==(Person::findPerByID($data['ID']))) {
         
-        $error['perID_err'] = 'Person ID does not exist.';
+      //   $error['perID_err'] = 'Person ID does not exist.';
       };
 
-
-      // $error['perID_err'] = (null!==(Person::findPerByID($data['ID']))) ? 'Person ID does not exist.' : '';
-
       //Check input clear error
-      if (empty($error['proName_err']) && empty($error['start_err']) && empty($error['end_err']) && empty($error['perID_err'])) {
+      if (empty($error['proName_err']) && empty($error['start_err']) && empty($error['end_err'])) {
         if (Project::insertPro($data)) {
+          echo 'inserted';
+
          $this->index();
-         
         }
 
         else {
-    
-          $this->render('errorProject');
+          
+          echo "falie to execute";
         }
         
-      }else {    
-    
+      }else {
       $this->render('add',['project'=>$data,'error'=>$error]);
       }
     } else {
@@ -80,7 +75,7 @@ class ProjectsController extends BaseController
         'proName' =>  '',
         'proStart' => '',
         'proEnd' => '',
-        'ID' => '',
+        'ID' => $_GET['id'],
         ];
 
         $error = [
@@ -89,7 +84,6 @@ class ProjectsController extends BaseController
           'end_err' => '',
           'perID_err' => '',
         ];
-
         $this->render('add',['project'=>$data]);
     }
   }

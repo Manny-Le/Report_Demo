@@ -4,21 +4,18 @@
     <form 
     name="addProject" 
     method="post" 
-    action="index.php?controller=projects&action=addProject">
+    action="index.php?controller=projects&action=addProject&id=<?=$project['ID']?>">
         <tr>
           <td>
             <label class="fill-in">Person ID: </label>
           </td>
           <td>
-            <input 
-            type="number"
-            name="ID" 
-            value="<?= isset($project['ID']) ? $project['ID'] : ''; ?>"/>
+            <p><?= $project['ID']?></p>
           </td>
           <td>
             <?= $error['perID_err']; ?>
           </td>
-        </tr> 
+        </tr>
         <tr>
           <td>
             <label class="fill-in">Project name: </label>

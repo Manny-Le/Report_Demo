@@ -15,10 +15,12 @@ class PersonsController extends BaseController
   }
 
   public function showPerson() {
-    $persons = Person::findPerByID($_GET['id']);
+    $person = Person::findPerByID($_GET['id']);
     // $project = Project::getAllProjectbyPersonID($_GET['id']);
-
-    $this->render('show',['persons'=> $persons]);
+    foreach ($person as $key=>$value) {
+      $data[$key] = $value;
+    }
+    $this->render('show',['persons'=> $data]);
   }
 
   public function editPerson()
@@ -36,6 +38,7 @@ class PersonsController extends BaseController
         'Mail' => trim($_POST['Mail']),
         'DOB' => $_POST['DOB'],
         'ID' => $_GET['id'],
+        'Addre' => $_GET['Addre'],
       ];
 
       $error = [
@@ -45,6 +48,7 @@ class PersonsController extends BaseController
         'phone_err' => '',
         'mail_err' => '',
         'DOB_err' => '',
+        'add_err' => '',
         'empty_err' =>''
       ];
       
@@ -55,14 +59,13 @@ class PersonsController extends BaseController
           && ($data['Gender'] == $person->Gender)
           && empty($data['Phone'])
           && empty($data['Mail'])
-          && empty($data['DOB'])) {
+          && empty($data['DOB'])
+          && empty($data['Addre'])) {
             $error['empty_err'] = 'Please enter field for change.';
 
             foreach ($data as $key=>$value) {
               $data[$key] = $person->$key;
             }
-            
-
             $this->render('edit',['data' => $data,'error'=>$error]);
       }
       //If 1 field is enter
@@ -86,9 +89,6 @@ class PersonsController extends BaseController
       foreach ($person as  $key=>$value) {
         $data[$key] = $person->$key;
     }
-
-    
-
     $this->render('edit',['data' => $data,'error'=>$error]);
     }
   }
@@ -111,7 +111,9 @@ class PersonsController extends BaseController
         'Phone' => trim($_POST['Phone']),
         'Mail' => trim($_POST['Mail']),
         'DOB' => $_POST['DOB'],
+        'Addre' => trim($_POST['Addre']),
       ];
+      
       $error = [
         'name_err' => '',
         'job_err' => '',
@@ -119,6 +121,7 @@ class PersonsController extends BaseController
         'phone_err' => '',
         'mail_err' => '',
         'DOB_err' => '',
+        'add_err' => '',
       ];
 
       //Check input empty & send message back to form
@@ -129,11 +132,12 @@ class PersonsController extends BaseController
       $error['mail_err'] = (empty($data['Mail'])) ? 'Please enter email.' : '';
       $error['mail_err'] = (!$this->mailValidate($data['Mail'])) ? 'Please enter correct email.' : '';
       $error['DOB_err'] = (empty($data['DOB'])) ? 'Please enter date.' : '';
+      $error['add_err'] = (empty($data['Addre'])) ? 'Please enter addre.' : '';
 
       //Check input clear error
-      if (empty($error['name_err']) && empty($error['job_err']) && empty($error['gender_err']) && empty($error['phone_err']) && empty($error['mail_err']) && empty($error['DOB_err'])) {
+      if (empty($error['name_err']) && empty($error['job_err']) && empty($error['gender_err']) && empty($error['phone_err']) && empty($error['mail_err']) && empty($error['DOB_err']) && empty($error['add_err'])) {
         if (Person::insertPerson($data)) {
-         $this->render('insert',$data);
+         $this->render('insert');
         }
 
         else {
@@ -154,6 +158,7 @@ class PersonsController extends BaseController
         'Phone' => '',
         'Mail' => '',
         'DOB' => '',
+        'Addre' => '',
         
         ];
 
@@ -164,6 +169,7 @@ class PersonsController extends BaseController
           'phone_err' => '',
           'mail_err' => '',
           'DOB_err' => '',
+          'add_err' => '',
         ];
 
         $this->render('add',['data'=>$data]);

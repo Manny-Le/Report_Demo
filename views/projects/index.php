@@ -25,6 +25,6 @@
   </tr>
  <?php } ?>
   </table>
-  <a href="index.php?controller=projects&action=addProject">ADD NEW</a>
+  <a href="index.php?controller=persons&action=index">CHOOSE PERSON TO ADD</a>
   <a href="index.php?controller=pages&action=home">HOME</a>
 </html>

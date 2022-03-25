@@ -19,7 +19,9 @@ class Project {
   public function getAllProject() {
     $list = [];
     $db = connDB::getInstance();
-    $req = $db->query('SELECT * FROM project');
+    $req = $db->prepare('SELECT * FROM project');
+
+    $items = $req->execute();
 
     foreach ($req->fetchAll() as $item) {
       $list[] = new Project($item['proID'], $item['proName'], $item['proStart'], $item['proEnd'], $item['perID']);
@@ -31,12 +33,12 @@ class Project {
 
     $list = [];
     $db = connDB::getInstance();
-    $stmt = $db->prepare('SELECT * FROM project JOIN persons  ON project.ID = persons.ID WHERE project.ID = :id');
+    $stmt = $db->prepare('SELECT * FROM project LEFT JOIN persons ON project.ID = persons.ID WHERE persons.ID = :id');
 
-    $req->execute(array('ID'=>$personID));
-    $items->fetchAll();
-
-    foreach ($tems as $item) {
+    $stmt->execute(array(':id'=>$personID));
+    $items = $stmt->fetchAll();
+    
+    foreach ($items as $item) {
       $list[] = new Project($item['proID'], $item['proName'], $item['proStart'], $item['proEnd'], $item['perID']);
     }
     return $list;
@@ -81,11 +83,16 @@ class Project {
     $stmt->bindParam(':name', $data['proName']);
     $stmt->bindParam(':start', $data['proStart']);
     $stmt->bindParam(':end', $data['proEnd']);
-    $stmt->bindParam(':perID', $data['perID']);
+    $stmt->bindParam(':perID', $data['ID']);
+
+    echo "<pre>";
+    print_r($stmt);
+    echo "</pre>";
 
     if($stmt->execute()){
         return true;
     } else {
+      echo 'fail to insert';
         return false;
     }
   }

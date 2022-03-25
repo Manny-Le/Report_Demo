@@ -5,7 +5,7 @@ $controllers = array(
                 'addPerson', 'insert', 
                 'errorPerson', 'editPerson',
                 'confirmDelete','deletePerson'],
-  'projects' => ['index','showProject','addProject','add','confirmDelete','deleteProject'],
+  'projects' => ['insert','index','showProject','addProject','confirmDelete','deleteProject'],
 );
 
 if (!array_key_exists($controller, $controllers) 
@@ -20,6 +20,6 @@ include_once('controllers/' . $controller . '_controller.php');
 $klass = str_replace('_', '', ucwords($controller, '_')) . 'Controller';
 $controller = new $klass;
 // $controller->$action();
-call_user_func_array([$controller,$action],[$param]);
+call_user_func_array([$controller,$action],[$id]);
 
 ?>

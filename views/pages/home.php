@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HMTL CV DEMO</title>
     <link href="assets/style.css" rel="stylesheet"/>
-    <link href="queries.css" rel="stylesheet"/>
+    <link href="assets/queries.css" rel="stylesheet"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
@@ -19,28 +19,26 @@
 
       <h3>PERSONAL PROJECT</h3>
 
-      <ul class="nav-list">
-      <li><a 
-      class="nav-link"
-      href="index.php?controller=pages&action=home">HOME</a></li>
+      <div class="nav-list-cont">
+        <ul class="nav-list">
+        <li><a 
+        class="nav-link"
+        href="index.php?controller=pages&action=home">HOME</a></li>
 
-      <li><a
-      class="nav-link"
-      href="index.php?controller=persons&action=index">PERSONEL</a></li>
+        <li><a
+        class="nav-link"
+        href="index.php?controller=persons&action=index">PERSONEL</a></li>
 
-      <li><a
-      class="nav-link"
-      href="index.php?controller=projects&action=index">PROJECT</a></li>
-
-    </ul>
-
+        <li><a
+        class="nav-link"
+        href="index.php?controller=projects&action=index">PROJECT</a></li>
+      </ul>
     </div>
-    
+    </div>
 
+      <h1><?=$person->FullName;?> CV</h1>
 
-      <h1>LE MINH MAN CV</h1>
-
-      <h2>FRONTEND DEVELOPER INTERN</h2>
+      <h2><?=$person->JobApply?></h2>
 
       <img id="self-img"
         src="assets/CV-self.jpg" 
@@ -50,14 +48,14 @@
 
       <div class="cv-info-block">       
       
-          <div class="cv-info">
+          <div class="cv-info cvi-1">
             <img 
             src="assets/gender-icon.png" 
             alt="gender icon" 
             width="25" 
             height="25" 
           />
-          Male
+          <?= $person->Gender;?>
           </div>
           <div class="cv-info">
             <img 
@@ -66,17 +64,16 @@
             width="30" 
             height="25" 
             />
-            0908361144
+            <?= $person->Phone;?>
           </div>
           
             <div class="cv-info">
               <img 
               src="assets/mail-icon.png" 
               alt="mail icon" 
-              width="25" 
-              
+              width="25"
               />
-              minhmanle90@gmail.com
+              <?= $person->Mail;?>
             </div>
 
         <div class="cv-info">
@@ -86,20 +83,20 @@
             width="25"
             height="25"
           />
-          03-05-1993
+          <?= $person->DOB;?>
         </div>
           
-        <div class="cv-info">
+        <div class="cv-info cv-add">
           <img
           src="assets/location-icon.png"
           alt="location icon"
           width="19"
           height="25"
           />
-          Tan Binh Dist., HCMC
+          <?= $person->Addre;?>
         </div>
         
-        <div class="cv-info">
+        <div class="cv-info cvi-6">
           <img
             class="fb-icon"
             src="assets/facebook-icon.png"
@@ -110,10 +107,10 @@
 
           <a
             class="fb-link"
-            href="https://www.facebook.com/profile.php?id=100006020657316"
-            target="_blank"
+            href="#"
+            target=""
             >
-            Mẫn Lê
+            <?=$person->FullName;?>
             </a
           >
         </div>
@@ -143,20 +140,22 @@
         </div>
         <div class="intro-CV-el intro-3">
             <div class="edu-block">
-              
             <h3>EDUCATION</h3>
-            <img
-              class="edu-assets"
-              src="assets/rmit-university-logo.png"
-              alt="rmit logo transparent"
-              height="250"
-            />
-            <ul class="edu-li">
-          
-              <li>Information Technology Major</li>
-              <li>Unfinished IT degree.</li>
-              <li>Completed basic Java, C, C++ courses.</li>
-            </ul>
+
+            <div class="cv-bot-edu">
+              <img
+                class="edu-assets"
+                src="assets/rmit-university-logo.png"
+                alt="rmit logo transparent"
+                height="250"
+              />
+              <ul class="edu-li">
+            
+                <li>Information Technology Major</li>
+                <li>Unfinished IT degree.</li>
+                <li>Completed basic Java, C, C++ courses.</li>
+              </ul>
+            </div>
           </div>
         
         </div>
@@ -214,7 +213,7 @@
       </div>
       
       <div class="right-float-container">
-        <div class="skills-block">
+        <div div class="skills-block">
           <h3>SKILLS</h3>
           <ul class="listing1">
             
@@ -229,23 +228,39 @@
           </ul>
         </div>
 
-        <div class="hobbies-block">
-          <h3>HOBBIES & INTERETESTS</h3>
-          <ul>
-            <li>Camping and backpacking</li>
-            <li>Playing video games</li>
-            <li>Reading comic books</li>
-          </ul>
-        </div>
+          <div class="hobbies-block">
+            <h3>HOBBIES & INTERETESTS</h3>
+            <ul>
+              <li>Camping and backpacking</li>
+              <li>Playing video games</li>
+              <li>Reading comic books</li>
+            </ul>
+          </div>
 
-        <div class="achievment">
-          <h3>PERSONAL ACHIEVMENT</h3>
-          <ul class="listing1">
-            <li>Travelling & Backpacking</li>
-            <li>Camping alone in the woods for 1 month.</li>
-            <li>Travelling through Vietnam, Laos and Cambodia on motobike.</li>
-          </ul>
-        </div>
+          <div class="achievment">
+            <h3>PERSONAL ACHIEVMENT</h3>
+            <ul class="listing1">
+              <li>Travelling & Backpacking</li>
+              <li>Camping alone in the woods for 1 month.</li>
+              <li>Travelling through Vietnam, Laos and Cambodia on motobike.</li>
+            </ul>
+          </div>
+
+          <div class="displayProject">
+            <h3>PERSONAL PROJECT</h3>
+            <ul>
+              <?php
+              $countPro = 0;
+              foreach ($project as $item) {?>
+                <ul class="project-li">
+                  <li>Project ID: <?=$item->proID;?></li>
+                  <li>Project Name: <?=$item->proName;?></li>
+                  <li>Project start time: <?=$item->proStart;?></li>
+                  <li>Project end time: <?=$item->proEnd;?></li>
+
+                </ul>
+              <?php }?> 
+          </div>
         </div>
       </div>
     </article>

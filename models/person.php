@@ -8,8 +8,9 @@ class Person {
   public $Phone;
   public $Mail;
   public $DOB;
+  public $Addre;
 
-  public function __construct($id, $fullName, $jobApply, $gender, $phone, $email, $dob) {
+  public function __construct($id, $fullName, $jobApply, $gender, $phone, $email, $dob, $add) {
     $this->ID = $id;
     $this->FullName = $fullName;
     $this->JobApply = $jobApply;
@@ -17,6 +18,7 @@ class Person {
     $this->Phone = $phone;
     $this->Mail = $email;
     $this->DOB = $dob;
+    $this->Addre = $add;
   }
 
   public function getAllPerson() {
@@ -24,10 +26,13 @@ class Person {
       $db = connDB::getInstance();
       $req = $db->query('SELECT * FROM persons');
 
-
       foreach ($req->fetchAll() as $item) {
-        $list[] = new Person($item['ID'], $item['FullName'], $item['JobApply'], $item['Gender'], $item['Phone'], $item['Mail'], $item['DOB']);
+        $list[] = new Person($item['ID'], $item['FullName'], $item['JobApply'], $item['Gender'], $item['Phone'], $item['Mail'], $item['DOB'], $item['Addre']);
       }
+      
+    echo "<pre>";
+    print_r($a);
+    echo "</pre>";
       return $list;
   }
 
@@ -39,7 +44,7 @@ class Person {
     $req->execute(array('ID'=> $ID));
     $item = $req->fetch();
     if (isset($item['ID'])){
-      $list =  new Person($item['ID'], $item['FullName'], $item['JobApply'], $item['Gender'], $item['Phone'], $item['Mail'], $item['DOB']);
+      $list =  new Person($item['ID'], $item['FullName'], $item['JobApply'], $item['Gender'], $item['Phone'], $item['Mail'], $item['DOB'], $item['Addre']);
     }
     
     return $list;
@@ -48,7 +53,7 @@ class Person {
   public function insertPerson($data){
 
     $db = connDB::getInstance();
-    $stmt = $db->prepare('INSERT INTO persons (FullName, JobApply, Gender, Phone, Mail, DOB) VALUES (:name, :job, :gender, :phone, :mail, :DOB)');
+    $stmt = $db->prepare('INSERT INTO persons (FullName, JobApply, Gender, Phone, Mail, DOB, Addre) VALUES (:name, :job, :gender, :phone, :mail, :DOB, :Addre)');
     
     $stmt->bindParam(':name', $data['FullName']);
     $stmt->bindParam(':job', $data['JobApply']);
@@ -56,6 +61,7 @@ class Person {
     $stmt->bindParam(':phone', $data['Phone']);
     $stmt->bindParam(':mail', $data['Mail']);
     $stmt->bindParam(':DOB', $data['DOB']);
+    $stmt->bindParam(':Addre', $data['Addre']);
 
     if($stmt->execute()){
         return true;
@@ -67,7 +73,7 @@ class Person {
   public function updatePerson($data) {
     $db = connDB::getInstance();
     $stmt = $db->prepare('UPDATE persons SET FullName = :name,
-    JobApply = :job, Gender = :gender, Phone = :phone, Mail = :mail, DOB = :dob WHERE id = :id');
+    JobApply = :job, Gender = :gender, Phone = :phone, Mail = :mail, DOB = :dob, Addre = :add WHERE id = :id');
 
     $stmt->bindParam(':name', $data['FullName']);
     $stmt->bindParam(':job', $data['JobApply']);
@@ -75,6 +81,7 @@ class Person {
     $stmt->bindParam(':mail', $data['Mail']);
     $stmt->bindParam(':phone', $data['Phone']);
     $stmt->bindParam(':dob', $data['DOB']);
+    $stmt->bindParam(':add', $data['Addre']);
 
     $stmt->bindParam(':id', $data['ID']);
 
@@ -96,8 +103,6 @@ class Person {
     
     return ($stmt->execute()) ? true:false;
   }
-
-
 
 
 
