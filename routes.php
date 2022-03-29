@@ -6,6 +6,7 @@ $controllers = array(
                 'errorPerson', 'editPerson',
                 'confirmDelete','deletePerson'],
   'projects' => ['insert','index','showProject','addProject','confirmDelete','deleteProject'],
+  'authentication' => ['index','login','logout'],
 );
 
 if (!array_key_exists($controller, $controllers) 

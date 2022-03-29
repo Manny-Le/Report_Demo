@@ -32,6 +32,7 @@ html {
 	margin: 0 auto;
 }
 
+/*------------------------NAVIGATE BOX-------------------------------*/
 .nav-box {
 	display: flex;
 	justify-content: space-between;
@@ -49,9 +50,29 @@ html {
 }
 
 .nav-box h3 {
-	color: #ffff;
 	font-size: 3.9rem;
+	color: #ffff;
 }
+
+a.nav-link:link,
+a.nav-link:visited {
+	display: inline-block;
+	padding: 0.5rem;
+	text-decoration: none;
+	color: #ffff;
+	font-size: 2.5rem;
+	padding: 3rem;
+}
+
+a.nav-link:hover,
+a.nav-link:active {
+	display: inline-block;
+	padding-bottom: 2.5rem;
+	text-decoration: none;
+	background-color: #1f7dcf;
+}
+
+/*Header and cv-info block*/
 
 h1 {
 	color: #411604;
@@ -76,6 +97,30 @@ h2 {
 	width: 28rem;
 	height: auto;
 }
+
+.cv-info {
+	display: flex;
+	align-items: center;
+}
+
+.cv-info-block {
+	width: 100%;
+	display: grid;
+	grid-template-columns: 0.8fr 1.1fr 1.3fr;
+	align-self: center;
+	justify-content: center;
+	column-gap: 2rem;
+	row-gap: 2rem;
+	background-color: #163c5d;
+	padding-top: 1rem;
+}
+
+.cv-text {
+	font-size: 3.5rem;
+	padding-left: 1rem;
+}
+
+/* */
 
 p {
 	font-size: 2rem;
@@ -105,34 +150,13 @@ body header {
 	max-width: 100%;
 }
 
-a.nav-link:link,
-a.nav-link:visited {
-	display: inline-block;
-	padding: 0.5rem;
-	text-decoration: none;
-	color: #ffff;
-	font-size: 2.5rem;
-}
-
-a.nav-link:hover,
-a.nav-link:active {
-	display: inline;
-	padding: 0.5rem;
-	text-decoration: none;
-	font-size: 2.5rem;
-}
-d .job-li {
+.job-li {
 	list-style: none;
 }
 
 .edu-li li {
 	font-size: 2.2rem;
 	line-height: 1.2;
-}
-
-.fb-icon {
-	background-color: rgb(48, 109, 240);
-	padding: 0.5rem 1rem;
 }
 
 /* .edu-li li:nth-child(2) {
@@ -153,18 +177,6 @@ d .job-li {
 	margin: 0 0 1.5rem 0;
 }
 
-.cv-info-block {
-	width: 100%;
-	display: grid;
-	grid-template-columns: 0.8fr 1.1fr 1.3fr;
-	align-self: center;
-	justify-content: center;
-	column-gap: 2rem;
-	row-gap: 2rem;
-	background-color: #163c5d;
-	padding-top: 1rem;
-}
-
 .cv-info {
 	/* background-color: #f4a460; */
 	font-size: 3.5rem;
@@ -182,8 +194,8 @@ a.fb-link:visited {
 	text-decoration: none;
 }
 
-.fb-link a:hover,
-a:active {
+.fb-link:hover,
+.fb-link:active {
 	font-size: 39rem;
 	display: inline-block;
 	text-decoration: none;
@@ -334,4 +346,28 @@ footer {
 	margin: 3rem 0 1rem 0;
 	font-weight: bold;
 	color: #f4a460;
+}
+
+/* LOG IN INDEX PAGE*/
+.login-page {
+	background-color: #ffff;
+}
+.navbar {
+	background-color: #163c5d;
+}
+.navbar-brand {
+	font-size: 3.5rem;
+}
+
+.login-h1-centering {
+	max-width: 65rem;
+	margin: auto;
+	margin-top: 5%;
+	color: #2b0e03;
+}
+
+.login-form {
+	width: 60%;
+	margin: auto;
+	margin-top: 5%;
 }

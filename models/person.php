@@ -30,9 +30,6 @@ class Person {
         $list[] = new Person($item['ID'], $item['FullName'], $item['JobApply'], $item['Gender'], $item['Phone'], $item['Mail'], $item['DOB'], $item['Addre']);
       }
       
-    echo "<pre>";
-    print_r($a);
-    echo "</pre>";
       return $list;
   }
 

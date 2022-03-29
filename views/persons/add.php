@@ -18,7 +18,7 @@
           <td>
             <?= $error['name_err']; ?>
           </td>
-        </tr> 
+        </tr>
         <tr>
           <td>
             <label class="fill-in">Job: </label>

@@ -40,13 +40,13 @@
 
 	.nav-box h3 {
 		font-size: 3.125rem;
-    margin: 0;
+		margin: 0;
 	}
 
-	ul.nav-list { 
-    display:block;
+	ul.nav-list {
+		display: block;
 		gap: 1rem;
-    text-align: center;
+		text-align: center;
 	}
 	.cv-info {
 		font-size: 2.5rem;
@@ -100,9 +100,9 @@
 		margin-left: 12rem;
 	}
 
-  ul.nav-list {
-    margin: 0;
-  }
+	ul.nav-list {
+		margin-right: 5%;
+	}
 
 	h1 {
 		margin-top: 3rem;
@@ -151,39 +151,13 @@
 }
 
 @media (max-width: 24em) {
-
-  html {
-    font-size: 38%;
-  }
-
-  ul.nav-list {
-    display: block;
-    text-align: center;
-    margin: 0;
-  }
-
-	/* a.nav-link:link,
-	a.nav-link:visited {
-		font-size: 2.2rem;
-	} */
-
-	/* .nav-box h3 {
-		margin: 0;
+	html {
+		font-size: 38%;
 	}
 
 	ul.nav-list {
-		margin: 0 0 0 10rem;
-	}
-
-	h1 {
-		font-size: 7rem;
-	}
-
-	h2 {
-		font-size: 4.5rem;
-	}
-
-	.edu-assets {
-		width: 20rem; */
+		display: block;
+		text-align: center;
+		margin: 0;
 	}
 } ;

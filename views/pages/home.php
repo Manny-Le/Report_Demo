@@ -7,6 +7,7 @@
     <title>HMTL CV DEMO</title>
     <link href="assets/style.css" rel="stylesheet"/>
     <link href="assets/queries.css" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
@@ -19,11 +20,10 @@
 
       <h3>PERSONAL PROJECT</h3>
 
-      <div class="nav-list-cont">
         <ul class="nav-list">
         <li><a 
         class="nav-link"
-        href="index.php?controller=pages&action=home">HOME</a></li>
+        href="index.php?controller=pages&action=home&id=1">HOME</a></li>
 
         <li><a
         class="nav-link"
@@ -32,10 +32,12 @@
         <li><a
         class="nav-link"
         href="index.php?controller=projects&action=index">PROJECT</a></li>
+
+        <li><a
+        class="nav-link"
+        href="index.php?controller=authentication&action=logout">LOG OUT</a></li>
       </ul>
     </div>
-    </div>
-
       <h1><?=$person->FullName;?> CV</h1>
 
       <h2><?=$person->JobApply?></h2>
@@ -50,59 +52,68 @@
       
           <div class="cv-info cvi-1">
             <img 
-            src="assets/gender-icon.png" 
+            class="cv-icon"
+            src="<?php
+            if ($person->Gender == "male") {
+              echo "assets/male-icon.png";
+            } else if ($person->Gender == "female") {
+              echo "assets/female-icon.png";
+            } else {
+              echo "assets/heli-icon.png";
+            }
+            
+            ?>" 
             alt="gender icon" 
-            width="25" 
-            height="25" 
+            width="40" 
           />
-          <?= $person->Gender;?>
+          <p class="cv-text"><?= $person->Gender;?></p> 
           </div>
           <div class="cv-info">
             <img 
+            class="cv-icon"
             src="assets/phone-icon.png" 
             alt="phone icon" 
-            width="30" 
-            height="25" 
+            width="40"
             />
-            <?= $person->Phone;?>
+            <p class="cv-text"><?= $person->Phone;?></p>
           </div>
           
             <div class="cv-info">
               <img 
+              class="cv-icon"
               src="assets/mail-icon.png" 
               alt="mail icon" 
-              width="25"
+              width="40"
               />
-              <?= $person->Mail;?>
+              <p class="cv-text"><?= $person->Mail;?></p>
             </div>
 
         <div class="cv-info">
           <img
+            class="cv-icon"
             src="assets/calendar-icon.png"
             alt="calendar icon"
-            width="25"
-            height="25"
+            width="40"
           />
-          <?= $person->DOB;?>
+          <p class="cv-text"><?= $person->DOB;?></p>
         </div>
           
         <div class="cv-info cv-add">
           <img
+          class="cv-icon"
           src="assets/location-icon.png"
           alt="location icon"
-          width="19"
-          height="25"
+          width="40"
           />
-          <?= $person->Addre;?>
+          <p class="cv-text"><?= $person->Addre;?></p>
         </div>
         
         <div class="cv-info cvi-6">
           <img
-            class="fb-icon"
+            class="fb-icon cv-icon"
             src="assets/facebook-icon.png"
             alt="facebook icon"
-            width="12"
-            height="25"
+            width="40"
           />
 
           <a
@@ -110,7 +121,7 @@
             href="#"
             target=""
             >
-            <?=$person->FullName;?>
+            <p class="cv-text"><?=$person->FullName;?></p>
             </a
           >
         </div>
@@ -119,8 +130,6 @@
 
     <div class="article-container">
     <article>
-
-
       <div class="intro-CV-block">
         <div class="intro-CV-el intro-1">
           <h3>INTRODUCTION</h3>
@@ -211,7 +220,6 @@
         </li>
       </ul>
       </div>
-      
       <div class="right-float-container">
         <div div class="skills-block">
           <h3>SKILLS</h3>

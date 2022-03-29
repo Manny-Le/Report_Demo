@@ -1,10 +1,11 @@
 <?php
+require_once('models/session.php');
 class BaseController
 {
   protected $folder; 
 
   
-  function render($file, $data = array())
+  public function render($file, $data = array())
   {
     
     $view_file = 'views/' . $this->folder . '/' . $file . '.php';

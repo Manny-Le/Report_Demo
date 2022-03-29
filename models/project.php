@@ -58,23 +58,7 @@ class Project {
     
     return $list;
   }
-
-  // public function insertProByID($data){
-
-  //   $db = connDB::getInstance();
-  //   $stmt = $db->prepare('INSERT INTO project (proName, proStart, proEnd, perID) VALUES (:name, :start, :end, :perID)');
-    
-  //   $stmt->bindParam(':name', $data['proName']);
-  //   $stmt->bindParam(':job', $data['proStart']);
-  //   $stmt->bindParam(':gender', $data['proEnd']);
-  //   $stmt->bindParam(':phone', $data['perID']);
-
-  //   if($stmt->execute()){
-  //       return true;
-  //   } else {
-  //       return false;
-  //   }
-  // }
+  
 
   public function insertPro($data){
     $db = connDB::getInstance();
