@@ -22,6 +22,10 @@ class connDB {
     self::$instance = NULL;
   }
 
+  public function testGitignore(){
+
+  }
+
 }
 
 ?>
