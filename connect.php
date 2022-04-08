@@ -15,7 +15,6 @@ class connDB {
         die ($ex -> getMessage());
       }
     }
-
     return self::$instance;
   }
 

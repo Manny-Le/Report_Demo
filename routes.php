@@ -23,4 +23,10 @@ $controller = new $klass;
 // $controller->$action();
 call_user_func_array([$controller,$action],[$id]);
 
+// class Router {
+//   protected $routes = [];
+//   protected $params = [];
+//   protected $method = [];
+// }
+
 ?>

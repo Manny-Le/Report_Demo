@@ -1,0 +1,9 @@
+{
+    "name": "manny-le/report_demo",
+    "autoload": {
+        "psr-4": {
+            "MannyLe\\ReportDemo\\": "src/"
+        }
+    },
+    "require": {}
+}
